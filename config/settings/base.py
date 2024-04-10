@@ -28,9 +28,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "account",
-    "myplaylist",
+    "playlist",
     "subscription",
     "review",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
