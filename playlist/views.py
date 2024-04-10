@@ -38,23 +38,3 @@ class PlaylistViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class TrackViewSet(viewsets.ModelViewSet):
-    queryset = Track.objects.all()
-    serializer_class = TrackSerializer
-
-    def create(self, request, playlist_id, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        playlist = Playlist.objects.get(id=playlist_id)
-        serializer.save(playlist=playlist)
-        headers = self.get_success_headers(serializer.data)
-        return Response(
-            serializer.data, status=status.HTTP_201_CREATED, headers=headers
-        )
-
-    def destroy(self, request, playlist_id, track_id, *args, **kwargs):
-        track = self.get_object()
-        self.perform_destroy(track)
-        return Response(status=status.HTTP_204_NO_CONTENT)

@@ -17,7 +17,7 @@ class Song(models.Model):
     album = models.ForeignKey("Album", on_delete=models.CASCADE, related_name="songs")
 
 
-class Playlist_song(models.Model):
+class PlaylistSong(models.Model):
     id = models.CharField(max_length=255, primary_key=True)
     playlist = models.ForeignKey(
         Playlist, on_delete=models.CASCADE, related_name="playlist_songs"
