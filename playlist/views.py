@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from .models import Playlist, Track
-from .serializers import PlaylistSerializer, TrackSerializer
+from .models import Playlist
+from .serializers import PlaylistSerializer
 
 
 class PlaylistViewSet(viewsets.ModelViewSet):
