@@ -1,11 +1,27 @@
-from rest_framework import viewsets
-from .models import Subscription, Payment
-from .serializers import SubscriptionSerializer, PaymentSerializer
+from rest_framework import viewsets, status
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from .models import Subscription
+from .serializers import SubscriptionSerializer
 
 class SubscriptionViewSet(viewsets.ModelViewSet):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
-
-class PaymentViewSet(viewsets.ModelViewSet):
-    queryset = Payment.objects.all()
-    serializer_class = PaymentSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def create(self, request, *args, **kwargs):
+        try:
+            subscription = Subscription.objects.get(user=request.user)
+            
+            if not subscription.active:
+                subscription.active = True
+                subscription.save()
+                serializer = self.get_serializer(subscription)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response({"message": "이미 구독 중입니다."}, status=status.HTTP_400_BAD_REQUEST)
+            
+        except Subscription.DoesNotExist:
+            subscription = Subscription.objects.create(user=request.user, active=True)
+            serializer = self.get_serializer(subscription)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
