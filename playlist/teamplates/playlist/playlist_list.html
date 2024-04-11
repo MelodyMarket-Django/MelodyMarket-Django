@@ -1,0 +1,14 @@
+{% extends 'my_app/base.html' %}
+
+{% block content %}
+  <h1>Playlists</h1>
+  <ul>
+    {% for playlist in playlists %}
+      <li>
+        <a href="{% url 'playlist_detail' playlist.id %}">{{ playlist.name }}</a>
+        <p>Created on: {{ playlist.creation_date }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'playlist_create' %}">Create New Playlist</a>
+{% endblock %}
