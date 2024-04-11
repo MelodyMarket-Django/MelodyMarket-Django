@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Album, Review
+from .models import song, Review
 
 class AlbumSerializer(serializers.ModelSerializer):
     class Meta:
