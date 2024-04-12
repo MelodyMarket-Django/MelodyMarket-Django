@@ -1,4 +1,4 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets, generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Subscription
@@ -25,3 +25,20 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
             subscription = Subscription.objects.create(user=request.user, active=True)
             serializer = self.get_serializer(subscription)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+
+class SubscriptionDetail(generics.RetrieveAPIView):
+    serializer_class = SubscriptionSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_object(self):
+        try: 
+            subsription = Subscription.objects.get(user=self.request.user)
+            return subsription
+        except Subscription.DoesNotExist:
+            raise generics.NotFound('현재 구독 중인 구독권이 없습니다.')
+    
+
+
+       
