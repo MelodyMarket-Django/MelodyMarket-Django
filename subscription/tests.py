@@ -77,5 +77,27 @@ class SubscriptionTest(TestCase):
 
         print("-- subscription_create test END --")
 
-    
+    def subscription_update(self):
+        print("-- subscription_update test START --")
+        self.client.login(username='jsyoo', password='iloveit1229!')
+        response = self.client.put(
+            f'/subscription/{self.subscription.id}/',
+            {
+                'type': '3개월권',
+                'start_date': '2024-04-11 15:30:00',
+                'end_date': '2024-07-11 15:30:00',
+                'price': '300',
+                'active': True,
+            },
+            format='json',
+        )
+        self.assertEqual(response.status_code, 200)
+        print("-- subscription_update test END --")
+
+    def subscription_delete(self):
+        print("-- subscription_delete test START --")
+        self.client.login(username='jsyoo', password='iloveit1229!')
+        response = self.client.delete(f'/subscription/{self.subscription.id}/')
+        self.assertEqual(response.status_code, 204)
+        print("-- subscription_delete test END --")
 
