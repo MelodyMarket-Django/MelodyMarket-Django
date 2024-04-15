@@ -1,6 +1,7 @@
 from rest_framework import viewsets, generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import PermissionDenied
 from .models import Subscription
 from .serializers import SubscriptionSerializer
 
@@ -33,19 +34,16 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
             
             serializer = self.get_serializer(subscription)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.user != request.user:
+            raise PermissionDenied("You do not have permission to access this subscription.")
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)    
 
 
 
-class SubscriptionDetail(generics.RetrieveAPIView):
-    serializer_class = SubscriptionSerializer
-    permission_classes = [IsAuthenticated]
-    
-    def get_object(self):
-        try: 
-            subsription = Subscription.objects.get(user=self.request.user)
-            return subsription
-        except Subscription.DoesNotExist:
-            raise generics.NotFound('현재 구독 중인 구독권이 없습니다.')
     
 
 
