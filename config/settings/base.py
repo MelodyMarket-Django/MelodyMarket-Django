@@ -1,25 +1,24 @@
+import os
 from pathlib import Path
 import environ
+from rest_framework import serializers
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+env = environ.Env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env(env_file=BASE_DIR / ".env")
+env.read_env(os.path.join(BASE_DIR, ".env"))
 
-# SECRET_KEY 설정 변경
-SECRET_KEY = env("SECRET_KEY")
+# # SECRET_KEY 설정 변경
+# SECRET_KEY = env("SECRET_KEY")
 
-# DATABASES 설정 변경
-DATABASES = {
-    "default": env.db(),
-}
+# # DATABASES 설정 변경
+# DATABASES = {
+#     "default": env.db(),
+# }
 
-# Application definition
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -64,8 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -81,19 +78,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
 LANGUAGE_CODE = "ko-kr"
 TIME_ZONE = "Asia/Seoul"
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL = "static/"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "account.User"

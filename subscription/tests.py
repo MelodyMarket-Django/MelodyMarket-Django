@@ -15,7 +15,7 @@ class SubscriptionTest(TestCase):
         self.user.save()
 
         self.subscription = Subscription.objects.create(
-            user = 'self.user',
+            user = self.user,
             type = '1개월권',
             start_date = '2024-04-11 15:30:00',
             end_date = '2024-05-11 15:30:00',
@@ -30,12 +30,12 @@ class SubscriptionTest(TestCase):
     def subscription_read(self):
         print("-- subscription_read test START --")
         print("-- 비회원 읽기 테스트 --")
-        response = self.client.get('/subscription/detail/')
+        response = self.client.get(f'/subscription/{self.subscription.id}/')
         self.assertEqual(response.status_code, 403)
 
         print("-- 회원 읽기 테스트 --")
         self.client.login(username = 'jsyoo', password = 'iloveit1229!')
-        response = self.client.get('/subscription/detail/')
+        response = self.client.get(f'/subscription/{self.subscription.id}/')
         self.assertEqual(response.status_code, 200)
         
         print('-- subscription_read test END--')
@@ -46,7 +46,7 @@ class SubscriptionTest(TestCase):
 
         print("-- 비회원 작성 테스트 --")
         response = self.client.post(
-            '/buy/voucher/',
+            '/subscription/',
             {
             'user': 'self.user',
             'type': '1개월권',
@@ -61,10 +61,11 @@ class SubscriptionTest(TestCase):
 
 
         print("-- 회원 작성 테스트 --")
+        self.client.login(username='jsyoo', password='iloveit1229!')
         response = self.client.post(
-            '/buy/voucher/',
+            '/subscription/',
             {
-            'user': 'self.user',
+            'user': self.user.id,
             'type': '1개월권',
             'start_date': '2024-04-11 15:30:00',
             'end_date': '2024-05-11 15:30:00',
