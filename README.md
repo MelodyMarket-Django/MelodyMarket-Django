@@ -221,7 +221,7 @@ graph TB
 ```
 ## 기능 명세 
 
-![image](https://github.com/melodyteam-org/melodymarket-django/assets/75007766/6ee8bcc2-0c31-4eb1-b1da-4f3dc2be66ff)  
+![image](https://github.com/melodyteam-org/melodymarket-django/assets/75007766/fb671725-2061-4d2d-b295-891a152946c7) 
   
 ### 사용자 계정 관리 (Account)
 
