@@ -11,10 +11,10 @@ env = environ.Env(
 # reading .env file
 environ.Env.read_env(env_file=BASE_DIR / ".env")
 
-# SECRET_KEY 설정 변경
+# # SECRET_KEY 설정 변경
 # SECRET_KEY = env("SECRET_KEY")
 
-# DATABASES 설정 변경
+# # DATABASES 설정 변경
 # DATABASES = {
 #     "default": env.db(),
 # }
@@ -95,3 +95,5 @@ STATIC_URL = "static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "account.User"

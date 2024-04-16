@@ -3,9 +3,9 @@ from rest_framework.routers import DefaultRouter
 from .views import SubscriptionViewSet, SubscriptionDetail
 
 router = DefaultRouter()
-router.register('/buy/voucher/', SubscriptionViewSet)
+router.register('', SubscriptionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('detail', SubscriptionDetail.as_view(), name='subscription_detail'),
+    path('detail/', SubscriptionDetail.as_view(), name='subscription_detail'),
 ]
