@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -27,10 +26,7 @@ urlpatterns = [
     # 회원가입 
     path('signup/', SignUpView.as_view(), name='signup'),  
 ]
-=======
-=======
-
->>>>>>> 7fbf496 (노래, 리뷰, 장르, 좋아요 모델 추가)
+(노래, 리뷰, 장르, 좋아요 모델 추가)
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import ReviewViewSet, ReviewListView, ReviewDetailView, ReviewCreateView, ReviewUpdateView, ReviewDeleteView, SignUpView
@@ -60,4 +56,4 @@ urlpatterns = [
 
 
 
->>>>>>> 5209a3d (🔧 crud 파일추가- 초안)
+(🔧 crud 파일추가- 초안)
