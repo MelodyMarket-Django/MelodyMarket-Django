@@ -49,49 +49,57 @@ FE, BE는 각자 맡은 부분을, CI/CD는 단계별로 나눠서 하기로 하
 
 ### URL 구조 (마이크로식) ###
 
+* **Main**
+
+| App              | URL                   |  HTML File Name    | 설명                                             |
+|------------------|-----------------------|--------------------|--------------------------------------------------|
+| main             | /                     | main.html          | 홈화면                                            |
+| main             | /about                | main/about.html    | 소개 화면                                         |
+
+  
 * **Account**
 
-| 구분             | URL                               | 설명                                                                                                 |
-|------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
-| 이메일 가입      | /accounts/register/            | 회원가입    |
-| 로그인           | /accounts/login/               | 로그인       |
-| 로그아웃         | /accounts/logout/              | 로그아웃        |
-| 비밀번호 재설정  | /accounts/password_reset/       | 비밀번호 재설정 |
+| app              | URL                          | HTML File Name               | 설명                          |
+|------------------|------------------------------|------------------------------|-------------------------------|
+| account          | 'account/register/'          |  account/register.html       | 회원가입                      |
+| account          | 'account/login/'             |  account/login.html          | 로그인                        |
+| account          | 'account/logout/'            |  account/logout.html         | 로그아웃                      |
+| account          | 'account/password_reset/'    |  account/pwrest.html         | 비밀번호 재설정                |
   
 * **Subscription**
 
-| 구분         | URL                      | 설명                                                             |
-|--------------|--------------------------|------------------------------------------------------------------|
-| 이용권 목록 | /subscription/          | 이용권 목록           |
-| 이용권 결제 | /subscription/payment  | 이용권 결제          |  
+| app          | URL                          |  HTML File Name                     | 설명                          |
+|--------------|------------------------------|-------------------------------------|-------------------------------|
+| subscription | 'subscription/'              |  subscription/subscription.html     | 이용권 목록                    |
+| subscription | 'subscription/payment'       |  subscription/payment.html          | 이용권 결제                    |  
   
 * **Browse**
 
-| 구분             | URL                               | 설명                                                                                                 |
-|------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
-| 트랙 및 앨범 검색 | /browse/search/                 | 트랙 또는 앨범을 검색                                                 |
-| 검색 추천        | /browse/{keyword_id}/recommendation/ | 검색을 통해 그에 맞는 top 10 곡을 추천 |
-| 장르 추천        | /browse/{genre_id}/recommendation/   | 장르를 선택하여 그에 맞는 top 10 곡을 추천  |
+| app              | URL                                          |   HTML File Name                     | 설명                                             |
+|------------------|----------------------------------------------|--------------------------------------|--------------------------------------------------|
+| browse           | 'browse/search/'                             |  browse/search.html                  | 트랙 또는 앨범을 검색                              |
+| browse           | 'browse/{keyword_id}/recommendation/'        |  browse/kw_recommendation.html       | 검색을 통해 top 10 곡을 추천              |
+| browse           | 'browse/{genre_id}/recommendation/'          |  browse/genre_recommendation.html    | 장르를 선택하여  top 10 곡을 추천          |
   
 * **Playlist**
 
-| 구분     | URL                             | 설명                                                                 |
-|----------|---------------------------------|----------------------------------------------------------------------|
-| 보기     | /playlists                    | 플레이리스트 목록    |
-| 생성     | /playlists/create             | 플레이리스트 생성    |
-| 수정     | /playlists/{playlistId}/edit  | 플레이리스트 수정    |
-| 삭제     | /playlists/{playlistId}/delete| 플레이리스트를 삭제  |
-| 트랙 보기| /playlists/{playlistId}       | 플레이리스트 내의 트랙 목록 보기 |
-| 트랙 추가| /playlists/{playlistId}/{trackId}/add | 플레이리스트에 트랙 추가     |
-| 트랙 삭제| /playlists/{playlistId}/{trackId}/delete | 플레이리스트에서 트랙 삭제   |
+| app           | URL                                            |   HTML File Name                     | 설명                                             |
+|---------------|------------------------------------------------|--------------------------------------|--------------------------------------------------|
+| playlist      | 'playlist'                                     |  playlist/list.html                  | 플레이리스트 목록                                 |
+| playlist      | 'playlist/create'                              |  playlist/list_create.html           | 플레이리스트 생성                                 |
+| playlist      | 'playlist/{playlistId}/edit'                   |  playlist/list_edit.html             | 플레이리스트 수정                                 |
+| playlist      | 'playlist/{playlistId}/delete'                 |  playlist/list_delete.html           | 플레이리스트를 삭제                               |
+| playlist      | 'playlist/{playlistId}'                        |  playlist/list_view.html             | 플레이리스트 내의 트랙 목록 보기                   |
+| playlist      | 'playlist/{playlistId}/{trackId}/add'          |  playlist/track_add.html             | 플레이리스트에 트랙 추가                           |
+| playlist      | 'playlist/{playlistId}/{trackId}/delete'       |  playlist/track_delete.html          | 플레이리스트에서 트랙 삭제                         |
   
 * **Review**
 
-| 구분                    | URL                              | 설명                                                                                       |
-|-------------------------|----------------------------------|--------------------------------------------------------------------------------------------|
-| 리뷰 작성  | /review/{album_id}             | 리뷰를 작성    |
-| 평점 계산  | /review/{album_id}/ratings/    | 평점을 생성    |
-| 댓글 작성  | /reviews/{review_id}/comments/ | 댓글 작성      |
+| app         | URL                              |  HTML File Name                                | 설명                                                                                       |
+|-------------|----------------------------------|--------------------------------------------|------------------------------------------------|
+| review      | 'review/{album_id}'              |   review/write.html                        | 리뷰를 작성    |
+| review      | 'review/{album_id}/rating/'      |   review/rating.html                       | 평점을 계산    |
+| review      | 'reviews/{review_id}/comment/'   |   review/comment.html                       | 댓글 작성      |
   
 
 
