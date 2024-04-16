@@ -346,8 +346,6 @@ graph TB
 ## 플로우 다이어그램
 <img src="https://github.com/melodyteam-org/melodymarket-django/assets/130268717/de1bf85d-d78d-42e3-8697-945b5f25c3f8" width="100%" alt="플로우 다이어그램">
 
-## WBS
-## 와이어프레임
 ## 트러블 슈팅
 * User 모델 커스터마이징 세팅<br>
   AbstractBaseUser를 상속받아 user 모델을 커스터마이징 하는 과정에서, admin.py와 settings폴더의 base.py에 코드를 추가하지 않아, view 코드에서 오류가 있었습니다. user모델 커스터마이징에 대한, 복습을 통해 디버깅에 성공할 수 있었습니다.
