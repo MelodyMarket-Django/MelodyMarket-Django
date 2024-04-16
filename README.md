@@ -29,116 +29,52 @@ Melody market은 구독 기반의 음악 스트리밍 사이트로, 사용자 �
 [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=GitHub)](https://github.com/)
 [![Notion](https://img.shields.io/badge/Notion-gray?style=for-the-badge&logo=Notion)](https://www.notion.so/)
 
+## 기능 명세 
 
-## 담당자 및 기능개발 진행상황
+![image](https://github.com/melodyteam-org/melodymarket-django/assets/75007766/fb671725-2061-4d2d-b295-891a152946c7) 
+  
+### 사용자 계정 관리 (Account)
 
-| 팀원   | 담당 APP      | 기능 설명                                     | 개발 완료    | 개발 중     |
-|--------|---------------|----------------------------------------------|------------|------------|
-| 유지은 | Account       | 회원가입                                     | ✔️          |            |
-|        |               | 로그인/로그아웃                              | ✔️          |            |
-|        |               | 사용자 모델 커스터마이징                      |            | 🔧          |
-|        |               | 사용자 권한 및 그룹 관리                      |            | 🔧          |
-| 유진선 | Subscription  | 구독 선택 및 관리                            | ✔️          |            |
-|        |               | 결제 정보 입력 (신용카드)                     | ✔️          |            |
-|        |               | 구독 정보 조회                               |   ✔️         |         |
-|        |               | 구독 취소                                    |      ✔️      |          |
-|        |               | 결제 완료                                    |            |   🔧       |
-| 신찬수 | Browse        | 검색 결과 반환                               |            | 🔧          |
-|        |               | 최근 검색어                                  |            | 🔧          |
-|        |               | 유사도 검색기                                |            | 🔧          |
-|        |               | 오타 교정                                   |            | 🔧          |
-|        |               | 검색/장르 기반 음악 추천                          |            | 🔧          |
-| 신선하 | Playlist      | 플레이리스트 CRUD 기능                                  | ✔️          |            |
-|        |               | 플레이리스트 내 노래 추가/삭제                  |            | 🔧          |
-| 장민지 | Review        | 리뷰 CRUD                                    |     ✔️       | 🔧          |
-|        |               | 평점 추가                                    |            | 🔧          |
-|        |               | 평균 평점 계산                               |            | 🔧          |
+- **회원가입:** 사용자는 이메일, 사용자 이름, 비밀번호를 입력하여 계정을 생성 할 수 있습니다.  
+- **로그인:** 사용자는 이메일과 비밀번호를 사용하여 로그인할 수 있습니다.   
+- **로그아웃:** 사용자는 로그인한 상태에서 로그아웃이 가능합니다.  
+   
+  [사용자 계정 관리 소스 코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/account)
 
+### 구독 & 결제 관리 (Subscription)
 
-## ERD 다이어그램
-```mermaid
-erDiagram
-    USER ||--o{ GROUP : "belongs to"
-    USER ||--o{ PERMISSION : "has"
-    USER ||--o{ PLAYLIST : "owns"
-    USER ||--o{ SUBSCRIPTION : "subscribes"
-    USER ||--|| PAYMENT : "makes"
-    USER ||--o{ SONG_REVIEW : "writes"
+- **구독 선택 및 관리**: 사용자는 구독의 시작 및 종료 날짜, 가격 등의 정보를 확인할 수 있습니다.
+- **구독 정보 조회**: 사용자의 현재 구독 상태와 결제 이력 정보를 조회합니다.
+- **구독 취소**: 사용자가 현재 진행 중인 구독을 취소합니다.
+- **결제 정보 입력 (신용카드)**: 결제 화면에서 사용자가 입력한 신용카드 정보를 받습니다.
+    
+  [구독 & 결제 관리 소스 코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/subscription)
 
-    GROUP ||--o{ PERMISSION : "grants"
+### 검색 & 추천 기능 (Browse)
 
-    PLAYLIST ||--o{ PLAYLIST_SONG : "contains"
-    SONG ||--o{ PLAYLIST_SONG : "included in"
+- **검색 결과 반환 :** 사용자가 검색한 결과를 반환합니다.
+  
+  [검색 & 추천 기능 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/feature-recommendation-%231-top10%EC%B6%94%EC%B2%9C/util)
 
-    SUBSCRIPTION ||--|| PAYMENT : "associated with"
+### 플레이리스트 관리 (Playlist)
 
-    USER {
-        string userID "Unique user ID PK"
-        string username "Unique username"
-        string email "User email address"
-        string password "User password hash"
-        string gender "User gender"
-        date birthDate "User birth date"
-        string provider "Social provider (e.g., Google, Facebook)"
-        string accountId "Provider's user ID"
-        boolean isSubscribed "User subscription status"
-    }
+- **플레이리스트 생성:** 사용자는 자신의 플레이리스트를 생성할 수 있습니다.
+- **플레이리스트 수정:** 사용자는 자신의 플레이리스트를 수정할 수 있습니다.
+- **플레이리스트 삭제:** 사용자는 플레이리스트에 트랙을 삭제할 수 있습니다.
+- **플레이리스트 보기:** 사용자는 자신의 플레이리스트를 볼 수 있습니다.
+  
+  [플레이리스트 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/playlist)
 
-    GROUP {
-        string name "Group name"
-    }
+### **리뷰 & 평점 관리 (Review)**
 
-    PERMISSION {
-        string name "Permission name"
-    }
+- **리뷰 보기:** 모든 사용자는 노래에 대해 리뷰를 볼 수 있습니다.
+- **리뷰 작성:** 인증된(로그인) 사용자는 노래에 대해 리뷰를 작성할 수 있습니다.
+- **리뷰 수정:** 사용자는 본인이 작성한 리뷰를 수정할 수 있습니다.
+- **리뷰 삭제:** 사용자는 본인이 작성한 리뷰를 삭제할 수 있습니다.
 
+    
+  [리뷰 & 평점 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/review)
 
-    PLAYLIST {
-        string id PK
-        string userId FK
-        string name
-        date creationDate
-    }
-
-    SONG {
-        string id PK
-        string title
-        string artist
-        float duration
-    }
-
-    PLAYLIST_SONG {
-        string id PK
-        string playlistId FK
-        string songId FK
-    }
-
-    SONG_REVIEW {
-        string id PK
-        string userId FK
-        string songId FK
-        string content
-        date date
-    }
-
-    SUBSCRIPTION {
-        string id PK
-        string userId FK
-        string type
-        date startDate
-        date endDate
-        float price
-    }
-
-    PAYMENT {
-        string id PK
-        string userId FK
-        string subscriptionId FK
-        float amount
-        string status
-        date paymentDate
-    }
-```
 
 ## 담당자 및 기능개발 진행상황
 
@@ -305,6 +241,39 @@ erDiagram
 | review      | 'reviews/{review_id}/comment/'   |   review/comment.html                      | 리뷰에 대한 댓글 작성      |
   
 
+## 아키텍쳐
+```mermaid
+graph TB
+   A[Client] --> B[Frontend]
+   B --> C[HTML/CSS/JS/Bootstrap]
+   B --> D[API Gateway]
+   
+   D --> E[Backend]
+   E --> F[Django]
+   F --> G[Authentication Service]
+   F --> H[Account Service]
+   F --> I[Browse Service]
+   F --> J[Subscription Service]
+   F --> K[Playlist Service]
+   F --> L[Review Service]
+
+   subgraph Frontend
+       C[HTML/CSS/JS/Bootstrap]
+   end
+
+   subgraph Backend
+       F[Django]
+       G[Authentication Service]
+       H[Account Service]
+       I[Browse Service]
+       J[Subscription Service]
+       K[Playlist Service]
+       L[Review Service]
+   end
+
+```
+
+
 
 ## 프로젝트 구조
    
@@ -372,85 +341,6 @@ erDiagram
 ├── 📄 pytest.ini  
 ├── 📄 README.md  
 └── 📄 requirements.txt  
-
-   
-
-## 아키텍쳐
-```mermaid
-graph TB
-   A[Client] --> B[Frontend]
-   B --> C[HTML/CSS/JS/Bootstrap]
-   B --> D[API Gateway]
-   
-   D --> E[Backend]
-   E --> F[Django]
-   F --> G[Authentication Service]
-   F --> H[Account Service]
-   F --> I[Browse Service]
-   F --> J[Subscription Service]
-   F --> K[Playlist Service]
-   F --> L[Review Service]
-
-   subgraph Frontend
-       C[HTML/CSS/JS/Bootstrap]
-   end
-
-   subgraph Backend
-       F[Django]
-       G[Authentication Service]
-       H[Account Service]
-       I[Browse Service]
-       J[Subscription Service]
-       K[Playlist Service]
-       L[Review Service]
-   end
-
-```
-## 기능 명세 
-
-![image](https://github.com/melodyteam-org/melodymarket-django/assets/75007766/fb671725-2061-4d2d-b295-891a152946c7) 
-  
-### 사용자 계정 관리 (Account)
-
-- **회원가입:** 사용자는 이메일, 사용자 이름, 비밀번호를 입력하여 계정을 생성 할 수 있습니다.  
-- **로그인:** 사용자는 이메일과 비밀번호를 사용하여 로그인할 수 있습니다.   
-- **로그아웃:** 사용자는 로그인한 상태에서 로그아웃이 가능합니다.  
-   
-  [사용자 계정 관리 소스 코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/account)
-
-### 구독 & 결제 관리 (Subscription)
-
-- **구독 선택 및 관리**: 사용자는 구독의 시작 및 종료 날짜, 가격 등의 정보를 확인할 수 있습니다.
-- **구독 정보 조회**: 사용자의 현재 구독 상태와 결제 이력 정보를 조회합니다.
-- **구독 취소**: 사용자가 현재 진행 중인 구독을 취소합니다.
-- **결제 정보 입력 (신용카드)**: 결제 화면에서 사용자가 입력한 신용카드 정보를 받습니다.
-    
-  [구독 & 결제 관리 소스 코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/subscription)
-
-### 검색 & 추천 기능 (Browse)
-
-- **검색 결과 반환 :** 사용자가 검색한 결과를 반환합니다.
-  
-  [검색 & 추천 기능 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/feature-recommendation-%231-top10%EC%B6%94%EC%B2%9C/util)
-
-### 플레이리스트 관리 (Playlist)
-
-- **플레이리스트 생성:** 사용자는 자신의 플레이리스트를 생성할 수 있습니다.
-- **플레이리스트 수정:** 사용자는 자신의 플레이리스트를 수정할 수 있습니다.
-- **플레이리스트 삭제:** 사용자는 플레이리스트에 트랙을 삭제할 수 있습니다.
-- **플레이리스트 보기:** 사용자는 자신의 플레이리스트를 볼 수 있습니다.
-  
-  [플레이리스트 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/playlist)
-
-### **리뷰 & 평점 관리 (Review)**
-
-- **리뷰 보기:** 모든 사용자는 노래에 대해 리뷰를 볼 수 있습니다.
-- **리뷰 작성:** 인증된(로그인) 사용자는 노래에 대해 리뷰를 작성할 수 있습니다.
-- **리뷰 수정:** 사용자는 본인이 작성한 리뷰를 수정할 수 있습니다.
-- **리뷰 삭제:** 사용자는 본인이 작성한 리뷰를 삭제할 수 있습니다.
-
-    
-  [리뷰 & 평점 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/review)
   
   
 ## 플로우 다이어그램
