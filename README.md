@@ -212,13 +212,16 @@ graph TB
 ```
 ## 기능 명세 
 
+![image](https://github.com/melodyteam-org/melodymarket-django/assets/75007766/6ee8bcc2-0c31-4eb1-b1da-4f3dc2be66ff)  
+  
 ### 사용자 계정 관리 (Account)
 
 - **회원가입:** 사용자는 이메일, 사용자 이름, 비밀번호를 입력하여 계정을 생성 할 수 있습니다.
 - **로그인/로그아웃:** 사용자는 이메일과 비밀번호를 사용하여 로그인할 수 있고, 로그인한 상태에서 로그아웃이 가능합니다.
 - **사용자 모델 커스터마이징:** 사용자는 프로필에 추가정보(예: 성별, 생년월일)를 설정할 수 있습니다.
 - **사용자 권한 및 그룹 관리:** 관리자는 사용자의 권한을 설정하고, 사용자를 다양한 그룹에 할당할 수 있습니다.
-https://github.com/melodyteam-org/melodymarket-django/tree/dev/account
+   
+  [사용자 계정 관리 소스 코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/account)
 
 ### 구독 & 결제 관리 (Subscription)
 
@@ -227,9 +230,10 @@ https://github.com/melodyteam-org/melodymarket-django/tree/dev/account
 - **구독 취소**: 사용자가 현재 진행 중인 구독을 취소합니다.
 - **결제 정보 입력 (신용카드)**: 결제 화면에서 사용자가 입력한 신용카드 정보를 받습니다.
 - **결제 완료**: 사용자가 입력한 결제 정보를 바탕으로 결제 완료 버튼을 클릭하면 결제가 완료 됩니다.
-https://github.com/melodyteam-org/melodymarket-django/tree/dev/subscription
+    
+  [구독 & 결제 관리 소스 코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/subscription)
 
-### 검색 및 추천 기능 (Browse)
+### 검색 & 추천 기능 (Browse)
 
 - **검색 결과 반환 :** 사용자가 검색한 결과를 반환합니다.
 - **최근 검색어:** 사용자의 최근 검색어 5개를 저장하고 검색 창 또는 별도의 섹션에 표시합니다.
@@ -237,23 +241,27 @@ https://github.com/melodyteam-org/melodymarket-django/tree/dev/subscription
 - **오타 교정:** 검색어의 오타를 자동으로 감지하고 교정하여 정확한 검색 결과를 제공합니다.
 - **검색 기반 음악 추천:** 사용자의 검색 키워드와 관련성이 높은 음악을 추천해줍니다.
 - **장르 기반 음악 추천:** 사용자가 선택한 장르 내에서 인기 있는 음악을 추천해줍니다.
-[https://github.com/melodyteam-org/melodymarket-django/tree/feature-recommendation-%231-top10추천/util](https://github.com/melodyteam-org/melodymarket-django/tree/feature-recommendation-%231-top10%EC%B6%94%EC%B2%9C/util)
+  
+  [검색 & 추천 기능 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/feature-recommendation-%231-top10%EC%B6%94%EC%B2%9C/util)
 
 ### 플레이리스트 관리 (Playlist)
 
 - **CRUD 기능:** 사용자는 자신의 플레이리스트를 생성, 보기, 수정, 삭제할 수 있습니다.
 - **플레이리스트 트랙 추가/삭제:** 사용자는 플레이리스트에 트랙을 추가하거나 삭제할 수 있습니다.
-https://github.com/melodyteam-org/melodymarket-django/tree/dev/playlist
+  
+  [플레이리스트 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/playlist)
 
-### **리뷰 및 평점 관리 (Review)**
+### **리뷰 & 평점 관리 (Review)**
 
 - **리뷰 보기:** 모든 사용자는 노래에 대해 리뷰를 볼 수 있습니다.
 - **리뷰 작성:** 인증된(로그인) 사용자는 노래에 대해 리뷰를 작성할 수 있습니다.
 - **리뷰 수정/삭제:** 사용자는 본인이 작성한 리뷰를 수정/삭제 할 수 있습니다.
 - **평점 추가** : 사용자들은 노래에 대해 평점을 남길 수 있습니다.
 - **평균 평점 계산:** 사용자들이 남긴 리뷰 점수를 기반으로 각 앨범의 평균 평점이 계산되어 앨범 상세 정보 페이지에 표시됩니다.
-https://github.com/melodyteam-org/melodymarket-django/tree/dev/review
-
+    
+  [리뷰 & 평점 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/review)
+  
+  
 ## 플로우 다이어그램
 <img src="https://github.com/melodyteam-org/melodymarket-django/assets/130268717/de1bf85d-d78d-42e3-8697-945b5f25c3f8" width="100%" alt="플로우 다이어그램">
 
