@@ -12,12 +12,12 @@ env = environ.Env(
 environ.Env.read_env(env_file=BASE_DIR / ".env")
 
 # SECRET_KEY 설정 변경
-SECRET_KEY = env("SECRET_KEY")
+# SECRET_KEY = env("SECRET_KEY")
 
 # DATABASES 설정 변경
-DATABASES = {
-    "default": env.db(),
-}
+# DATABASES = {
+#     "default": env.db(),
+# }
 
 # Application definition
 INSTALLED_APPS = [

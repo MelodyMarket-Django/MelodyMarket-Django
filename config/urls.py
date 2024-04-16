@@ -6,5 +6,5 @@ urlpatterns = [
     # 다른 URL 패턴들...
     path("admin/", admin.site.urls),
     path("account/", include("account.urls")),
-    path("playlists/", include("playlist.urls")),
+    path("playlist/", include("playlist.urls")),
 ]
