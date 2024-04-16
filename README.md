@@ -17,6 +17,7 @@
 ## 아키텍쳐
 ## 기능 명세 
 ## 플로우 다이어그램
+<img src="https://github.com/melodyteam-org/melodymarket-django/assets/130268717/de1bf85d-d78d-42e3-8697-945b5f25c3f8" width="100%" alt="플로우 다이어그램">
 ## ERD 다이어그램 
 ## WBS
 ## 기능명세서
