@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- 여기에 추가적인 메타 태그나 스타일 시트 링크 등을 포함할 수 있다.-->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- 네비게이션 메뉴 등을 포함할 수 있다. -->
+        </nav>
+    </header>
+
+    <main>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <!-- 페이지 하단의 추가 정보나 링크 등을 포함할 수 있다. -->
+    </footer>
+
+    <!-- 여기에 추가적인 스크립트 태그 등을 포함할 수 있다. -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
