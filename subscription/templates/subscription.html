@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <main id="subscription"></main>
+<script>
+fetch('http://127.0.0.1:8000/subscription/')
+.then(response => response.json())
+.then(data => {
+    const subscription = document.getElementById('subscription')
+    data.forEach(subscription => {
+        const postElement = document.createElement('div')
+        postElement.innerHTML = `
+            <p>${subscription.type}</p>
+            <p>${subscription.start_date}</p>
+            <p>${subscription.end_date}</p>
+            <p>${subscription.price}</p>
+        `
+        subscription.appendChild(postElement)
+    })
+})
+</script>
+</body>
+</html>
