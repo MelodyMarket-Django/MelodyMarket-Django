@@ -44,8 +44,7 @@ class UserRecommendation(models.Model):
 
     def __str__(self):
         return f"Recommendation by {self.user.username} for {self.song.title}"
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 7fbf496 (노래, 리뷰, 장르, 좋아요 모델 추가)
+
+(노래, 리뷰, 장르, 좋아요 모델 추가)
