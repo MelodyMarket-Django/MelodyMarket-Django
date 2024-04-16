@@ -15,6 +15,7 @@
    1. 파일구조    
    2. 브랜치전략
 ## 아키텍쳐
+```mermaid
 graph TB
    A[Client] --> B[Lightsail - Frontend Server]
    B --> C[HTML/CSS/JS/Bootstrap]
@@ -59,11 +60,13 @@ graph TB
        Q[Playlist Database - PostgreSQL]
        R[Review Database - PostgreSQL]
    end
+```
 ## 기능 명세 
 ## 플로우 다이어그램
 <img src="https://github.com/melodyteam-org/melodymarket-django/assets/130268717/de1bf85d-d78d-42e3-8697-945b5f25c3f8" width="100%" alt="플로우 다이어그램">
 
 ## ERD 다이어그램
+```mermaid
 erDiagram
     USER ||--o{ GROUP : "belongs to"
     USER ||--o{ PERMISSION : "has"
@@ -145,6 +148,7 @@ erDiagram
         string status
         date paymentDate
     }
+```
 
 ## WBS
 ## 기능명세서
