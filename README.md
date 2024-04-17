@@ -356,6 +356,38 @@ graph TB
 ![image](https://github.com/melodyteam-org/melodymarket-django/assets/47774611/2c42282d-e78b-49ea-95ae-40959cb20c7c)
 ![image](https://github.com/melodyteam-org/melodymarket-django/assets/47774611/ebab9f93-96ca-4892-91f6-862f6800148b)
 
+## WBS
+```mermaid
+gantt
+    title 프로젝트 스프린트 계획
+    dateFormat  YYYY-MM-DD
+    
+    section 기획
+    레포생성            :done,    2024-03-29, 1d
+    기능 요구사항 명세    :done,    2024-03-29, 3d
+    모델 정의            :crit,    2024-03-30, 4d
+    URL 설계            :crit,    2024-03-30, 4d
+    와이어프레임         :crit,    2024-04-02, 4d
+    
+    section 기본기능개발
+    기본기능개발          :active,  2024-04-04, 11d
+    회원가입(Account)     :done,    2024-04-04, 4d
+    로그인/로그아웃(Account):done,    2024-04-07, 3d
+    구독 선택 및 관리(Subscription):done,  2024-04-04, 4d
+    결제 정보 입력(신용카드, Subscription):done,  2024-04-08, 4d
+    구독 정보 조회(Subscription)  :done,    2024-04-12, 3d
+    구독 취소(Subscription)       :done,    2024-04-12, 3d
+    플레이리스트 CRUD 기능(Playlist):done,  2024-04-04, 4d
+    리뷰 CRUD(Review)             :done,    2024-04-04, 10d
+    검색 결과 반환(Browse)         :active, 2024-04-04, 2d
+    최근 검색어(Browse)            :active, 2024-04-06, 2d
+    유사도 검색기(Browse)          :active, 2024-04-08, 3d
+    오타 교정(Browse)              :active, 2024-04-11, 2d
+    검색/장르 기반 음악 추천(Browse):active, 2024-04-13, 3d
+
+    section 발표준비
+    발표 준비              :crit,    2024-04-15, 2d
+```
 
 ## 개발하며 느낀점 
 **선하**:
