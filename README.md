@@ -32,6 +32,30 @@ FE : [https://github.com/melodyteam-org/melodymarket-fe](https://github.com/melo
 [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=GitHub)](https://github.com/)
 [![Notion](https://img.shields.io/badge/Notion-gray?style=for-the-badge&logo=Notion)](https://www.notion.so/)
 
+## 담당자 및 기능개발 진행상황
+
+| 팀원   | 담당 APP      | 기능 설명                                     | 개발 완료    | 개발 중     |
+|--------|---------------|----------------------------------------------|------------|------------|
+| 유지은 | Account       | 회원가입                                     | ✔️          |            |
+|        |               | 로그인/로그아웃                              | ✔️          |            |
+|        |               | 사용자 모델 커스터마이징                      |            | 🔧          |
+|        |               | 사용자 권한 및 그룹 관리                      |            | 🔧          |
+| 유진선 | Subscription  | 구독 선택 및 관리                            | ✔️          |            |
+|        |               | 결제 정보 입력 (신용카드)                     | ✔️          |            |
+|        |               | 구독 정보 조회                               |   ✔️         |         |
+|        |               | 구독 취소                                    |      ✔️      |          |
+|        |               | 결제 완료                                    |            |   🔧       |
+| 신찬수 | Browse        | 검색 결과 반환                               |            | 🔧          |
+|        |               | 최근 검색어                                  |            | 🔧          |
+|        |               | 유사도 검색기                                |            | 🔧          |
+|        |               | 오타 교정                                   |            | 🔧          |
+|        |               | 검색/장르 기반 음악 추천                          |            | 🔧          |
+| 신선하 | Playlist      | 플레이리스트 CRUD 기능                                  | ✔️          |            |
+|        |               | 플레이리스트 내 노래 추가/삭제                  |            | 🔧          |
+| 장민지 | Review        | 리뷰 CRUD                                    |     ✔️       | 🔧          |
+|        |               | 평점 추가                                    |            | 🔧          |
+|        |               | 평균 평점 계산                               |            | 🔧          |
+
 ## 기능 명세 
 
 ![image](https://github.com/melodyteam-org/melodymarket-django/assets/75007766/fb671725-2061-4d2d-b295-891a152946c7) 
@@ -78,30 +102,6 @@ FE : [https://github.com/melodyteam-org/melodymarket-fe](https://github.com/melo
     
   [리뷰 & 평점 관리 소스코드 링크](https://github.com/melodyteam-org/melodymarket-django/tree/dev/review)
 
-
-## 담당자 및 기능개발 진행상황
-
-| 팀원   | 담당 APP      | 기능 설명                                     | 개발 완료    | 개발 중     |
-|--------|---------------|----------------------------------------------|------------|------------|
-| 유지은 | Account       | 회원가입                                     | ✔️          |            |
-|        |               | 로그인/로그아웃                              | ✔️          |            |
-|        |               | 사용자 모델 커스터마이징                      |            | 🔧          |
-|        |               | 사용자 권한 및 그룹 관리                      |            | 🔧          |
-| 유진선 | Subscription  | 구독 선택 및 관리                            | ✔️          |            |
-|        |               | 결제 정보 입력 (신용카드)                     | ✔️          |            |
-|        |               | 구독 정보 조회                               |   ✔️         |         |
-|        |               | 구독 취소                                    |      ✔️      |          |
-|        |               | 결제 완료                                    |            |   🔧       |
-| 신찬수 | Browse        | 검색 결과 반환                               |            | 🔧          |
-|        |               | 최근 검색어                                  |            | 🔧          |
-|        |               | 유사도 검색기                                |            | 🔧          |
-|        |               | 오타 교정                                   |            | 🔧          |
-|        |               | 검색/장르 기반 음악 추천                          |            | 🔧          |
-| 신선하 | Playlist      | 플레이리스트 CRUD 기능                                  | ✔️          |            |
-|        |               | 플레이리스트 내 노래 추가/삭제                  |            | 🔧          |
-| 장민지 | Review        | 리뷰 CRUD                                    |     ✔️       | 🔧          |
-|        |               | 평점 추가                                    |            | 🔧          |
-|        |               | 평균 평점 계산                               |            | 🔧          |
 
 
 ## ERD 다이어그램
